@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 // Components
 import Header from './Components/Header'
 import Home from './Containers/Home'
-
+import './App.css'
 import 'bulma/css/bulma.css'
 
 function App() {
