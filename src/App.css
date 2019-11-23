@@ -1,14 +1,15 @@
-
+.home-container {
+  padding: 30px;
+}
 
 .items-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 30px;
-  padding: 16px;
+  min-height: 100vh;
 }
 
 .item-card {
   margin-bottom: 50px;
-  width: 300px;
+  width: 280px;
 }
