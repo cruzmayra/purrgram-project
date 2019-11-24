@@ -18,8 +18,18 @@ const Home = () => {
         .catch( e => console.error( 'Something went wrong' ) );
       }, [])
   
-  const addFavorites = () => {
-    console.log('add')
+  const addFavorites = (id) => {
+    const {currentUser} = window.localStorage
+    const favUser = window.localStorage.getItem(currentUser)
+    const currentFav = items.filter(item => {
+      return item.id === id
+    })
+
+    if(!favUser) {
+      window.localStorage.setItem(currentUser, JSON.stringify(currentFav))
+    } else {
+      window.localStorage.setItem(currentUser, JSON.stringify([...JSON.parse(favUser), currentFav[0]]))
+    }
   }
 
   return (

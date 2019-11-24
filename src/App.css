@@ -10,8 +10,8 @@
   min-height: calc(100vh - 3.5rem);
 }
 
-
-.items-container {
+.items-container,
+.favorites-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -19,6 +19,6 @@
 }
 
 .item-card {
-  margin-bottom: 50px;
+  margin: 30px auto;
   width: 280px;
 }

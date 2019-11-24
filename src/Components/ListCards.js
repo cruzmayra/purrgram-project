@@ -1,6 +1,10 @@
 import React from 'react'
 
 const ListCards = ({items, action}) => {
+
+  if(!items) return 'No tienes favoritos guardados :('
+
+  if(items)
   return (
     items.map((item) => {
       return (
@@ -16,7 +20,7 @@ const ListCards = ({items, action}) => {
             </div>
             <button
               className="button is-success is-light"
-              onClick={action}>
+              onClick={() => action(item.id)}>
                 Add to favorite
             </button>
           </div>
