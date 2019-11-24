@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 // Components
 import ListCards from '../Components/ListCards'
-import PerfilCard from '../Components/PerfilCard'
+import ProfileCard from '../Components/ProfileCard'
 
 const accessKey = process.env.REACT_APP_ACCESS_KEY
 
@@ -17,14 +17,18 @@ const Home = () => {
         .then( data => setItems(data.results) )
         .catch( e => console.error( 'Something went wrong' ) );
       }, [])
+  
+  const addFavorites = () => {
+    console.log('add')
+  }
 
   return (
     <div className="columns has-background-light is-flex home-container">
       <div className="column is-9 items-container is-flex">
-        <ListCards items={items}/>
+        <ListCards items={items} action={ addFavorites } />
       </div>
       <div className="column">
-        <PerfilCard />
+        <ProfileCard />
       </div>
     </div>
   )

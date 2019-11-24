@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListCards = ({items}) => {
+const ListCards = ({items, action}) => {
   return (
     items.map((item) => {
       return (
@@ -14,6 +14,11 @@ const ListCards = ({items}) => {
             <div className="content">
               {item.alt_description}
             </div>
+            <button
+              className="button is-success is-light"
+              onClick={action}>
+                Add to favorite
+            </button>
           </div>
         </div>
       )

@@ -1,6 +1,15 @@
-.home-container {
+.home-container,
+.profile-container {
   padding: 30px;
 }
+
+.login-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 3.5rem);
+}
+
 
 .items-container {
   display: flex;
