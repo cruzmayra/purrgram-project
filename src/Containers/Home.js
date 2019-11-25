@@ -18,24 +18,35 @@ const Home = () => {
         .catch( e => console.error( 'Something went wrong' ) );
       }, [])
   
-  const addFavorites = (id) => {
-    const {currentUser} = window.localStorage
-    const favUser = window.localStorage.getItem(currentUser)
+  const addFavorites = (ident) => {
+    const { currentUser } = window.localStorage
+    const favUser = JSON.parse(window.localStorage.getItem(currentUser))
     const currentFav = items.filter(item => {
-      return item.id === id
+      return item.id === ident
     })
+    const {id, alt_description, urls} = currentFav[0]
+    const obj = {
+      [id]: {
+        description: alt_description, 
+        image: urls['small']
+      }
+    }
 
     if(!favUser) {
-      window.localStorage.setItem(currentUser, JSON.stringify(currentFav))
+      window.localStorage.setItem(currentUser, JSON.stringify(obj))
     } else {
-      window.localStorage.setItem(currentUser, JSON.stringify([...JSON.parse(favUser), currentFav[0]]))
+      favUser[id] = {
+        description: alt_description, 
+        image: urls['small']
+      }
+      window.localStorage.setItem(currentUser, JSON.stringify(favUser))
     }
   }
 
   return (
-    <div className="columns has-background-light is-flex home-container">
+    <div className="columns has-background-white-bis is-flex home-container">
       <div className="column is-9 items-container is-flex">
-        <ListCards items={items} action={ addFavorites } />
+        <ListCards items={items} action={ addFavorites } callTo="Add to Favorites"/>
       </div>
       <div className="column">
         <ProfileCard />

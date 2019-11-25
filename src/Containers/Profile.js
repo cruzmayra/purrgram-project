@@ -1,21 +1,32 @@
 import React from 'react'
 import ContextUser from '../Context/ContextUser'
 
-
 // Components
 import ProfileCard from '../Components/ProfileCard'
-import ListCards from '../Components/ListCards'
+import ListFavorites from '../Components/ListFavorites'
 
 const Profile = () => {
+
+  const removeFav = (ident) => {
+    const { currentUser } = window.localStorage
+    const favUser = JSON.parse(window.localStorage.getItem(currentUser))
+    delete favUser[ident]
+
+    window.localStorage.setItem(currentUser, JSON.stringify(favUser))
+  }
+
   return(
     <ContextUser.Consumer>
       {
         value => {
           return (
-            <div className="container is-fullhd profile-container">
+            <div className="container is-fullhd profile-container has-background-white-bis">
               <ProfileCard />
               <div className="favorites-container">
-                <ListCards items={ JSON.parse(window.localStorage.getItem(value)) }/>
+                <ListFavorites
+                  items={JSON.parse(window.localStorage.getItem(value))}
+                  action={removeFav}
+                  callTo="Remove to favorites" />
               </div>
             </div>
           )

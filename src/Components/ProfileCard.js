@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ContextUser from '../Context/ContextUser'
+import Profile from '../default_profile.png'
 
 const ProfileCard = () => {
 
@@ -17,7 +18,7 @@ const ProfileCard = () => {
             <Link to={`/${value}`}>
               <figure className="media-left">
               <p className="image is-64x64">
-                <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
+                <img className="is-rounded" src={Profile} alt="default profile"/>
               </p>
               </figure>
             </Link>
@@ -28,9 +29,9 @@ const ProfileCard = () => {
                     <strong>{value}</strong> <small>@{value} </small>
                   </Link>
                   <br />
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  See photos of cats that you have saved as favorites.
                   </p>
-                  <p className="has-text-black is-size-6" onClick={handleLogout}>Logout</p>
+                  <button className="button is-danger is-small" onClick={handleLogout}>Logout</button>
               </div>
             </div>
           </article>

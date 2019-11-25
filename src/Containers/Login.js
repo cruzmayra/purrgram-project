@@ -7,8 +7,9 @@ const Login = ({handleChange}) => {
       {
         value => {
           return (
-            <div className="container login-container">
+            <div className="container is-fullhd login-container has-background-white-bis">
               <div className="column is-6">
+                <h1 class="title">Enter and enjoy beautiful images of cats.</h1>
                 <div className="field">
                   <p className="control">
                     <input className="input"
@@ -19,7 +20,7 @@ const Login = ({handleChange}) => {
                 </div>
                 <div className="field">
                   <p className="control">
-                      <button className="button is-dark" onClick={ () => window.location.href= "/home"}>
+                      <button className="button is-primary" onClick={ () => window.location.href= "/home"}>
                         Login
                       </button>
                   </p>

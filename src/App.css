@@ -1,6 +1,6 @@
 .home-container,
 .profile-container {
-  padding: 30px;
+  padding: 60px 30px;
 }
 
 .login-container {
@@ -15,10 +15,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: calc(100vh - 3.5rem);
+  padding: 20px 0;
 }
 
 .item-card {
-  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
   width: 280px;
+}
+
+.item-card .card-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.item-card .card-content .content{
+  flex: 1 1 100%;
 }
