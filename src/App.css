@@ -10,6 +10,14 @@
   min-height: calc(100vh - 3.5rem);
 }
 
+.dontFound {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: calc(100vh - 3.5rem);
+}
+
 .items-container,
 .favorites-container {
   display: flex;

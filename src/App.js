@@ -4,6 +4,7 @@ import ContextUser  from './Context/ContextUser'
 
 // Components
 import Header from './Components/Header'
+import DontFound from './Components/404'
 import PrivateRoute from './Components/PrivateRoute'
 import Home from './Containers/Home'
 import Profile from './Containers/Profile'
@@ -26,12 +27,15 @@ function App() {
           <Route exact path="/">
             <Login handleChange={handleChange} />
           </Route>
-          <PrivateRoute path="/home">
+          <PrivateRoute exact path="/home">
             <Home />
           </PrivateRoute>
-          <PrivateRoute path="/:id">
+          <PrivateRoute exact path="/:id">
             <Profile />
           </PrivateRoute>
+          <Route>
+            <DontFound />
+          </Route>
         </Switch>
       </div>
     </ContextUser.Provider>
