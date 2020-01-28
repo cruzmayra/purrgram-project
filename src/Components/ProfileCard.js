@@ -1,11 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { StyleSheet, View, Image, Text, Button } from 'react-native'
 import ContextUser from '../Context/ContextUser'
 import Profile from '../default_profile.png'
 
-const ProfileCard = () => {
+const styles = StyleSheet.create({
+  avatar: {
+    height: 64,
+    width: 64
+  }
+})
 
-  const handleLogout = () => {
+export default function ProfileCard () {
+
+  function handleLogout () {
     window.localStorage.removeItem('currentUser')
     window.location.href = "/"
   }
@@ -14,31 +22,39 @@ const ProfileCard = () => {
     <ContextUser.Consumer>
       {
         value => {
-          return <article className="media">
-            <Link to={`/${value}`}>
-              <figure className="media-left">
-              <p className="image is-64x64">
-                <img className="is-rounded" src={Profile} alt="default profile"/>
-              </p>
-              </figure>
-            </Link>
-            <div className="media-content">
-              <div className="content">
-                  <p>
-                  <Link to={`/${value}`} className="has-text-dark">
-                    <strong>{value}</strong> <small>@{value} </small>
-                  </Link>
-                  <br />
-                  See photos of cats that you have saved as favorites.
-                  </p>
-                  <button className="button is-danger is-small" onClick={handleLogout}>Logout</button>
-              </div>
-            </div>
-          </article>
+          return <View style={{ flex: 1, flexDirection: "row", padding: 20}}>
+            <View style={{ flex: 2, alignItems: "center" }}>
+              <Link to={`/${value}`}>
+                <Image
+                  style={ styles.avatar }
+                  source={Profile}
+                  alt="default profile"
+                />
+              </Link>
+            </View>
+            <View style={{ flex: 4 }}>
+              <Link to={`/${value}`}>
+                <Text>
+                  @{value}
+                </Text>
+              </Link>
+              <br />
+              <Text
+                style={{ fontWeight: 16, color: "#4a4a4a", fontWeight: 400 }}>
+                See photos of cats that you have saved as favorites.
+              </Text>
+              <br />
+              <View style={{ width: 200}}>
+                <Button
+                  color="#F0395F"
+                  title="Logout"
+                  onPress={handleLogout}
+                />
+              </View>
+            </View>
+          </View>
         }
       }
     </ContextUser.Consumer>
   )
 }
-
-export default ProfileCard

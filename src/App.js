@@ -9,7 +9,7 @@ import { Login } from './Containers/Login'
 import { Home } from './Containers/Home'
 import DontFound from './Components/404'
 import PrivateRoute from './Components/PrivateRoute'
-import Profile from './Containers/Profile'
+import { Profile } from './Containers/Profile'
 
 export function App() {
   const {currentUser} = window.localStorage

@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    padding: 20}
+    padding: 20
+  }
 })
 
 export function Home() {
@@ -62,8 +63,8 @@ export function Home() {
           callTo="Add to Favorites"
         />
       </View>
-      <View style={{ flex: 2 }}>
-        {/* <ProfileCard /> */}
+      <View style={{ flex: 2, flexDirection: "row", minHeight: 300 }}>
+        <ProfileCard />
       </View>
     </View>
   )
