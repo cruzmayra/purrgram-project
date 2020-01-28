@@ -1,9 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
+import { View } from "react-native"
 import ContextUser  from './Context/ContextUser'
 
 // Components
-import Header from './Components/Header'
+import { Header } from './Components/Header'
 import DontFound from './Components/404'
 import PrivateRoute from './Components/PrivateRoute'
 import Home from './Containers/Home'
@@ -12,16 +13,16 @@ import Login from './Containers/Login'
 import './App.css'
 import 'bulma/css/bulma.css'
 
-function App() {
+export function App() {
   const {currentUser} = window.localStorage
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     window.localStorage.setItem('currentUser', e.target.value)
   }
 
   return (
     <ContextUser.Provider value={ currentUser }>
-      <div className="App">
+      <View>
         <Header />
         <Switch>
           <Route exact path="/">
@@ -37,9 +38,7 @@ function App() {
             <DontFound />
           </Route>
         </Switch>
-      </div>
+      </View>
     </ContextUser.Provider>
   );
 }
-
-export default App;
