@@ -7,8 +7,8 @@ import ContextUser  from './Context/ContextUser'
 import { Header } from './Components/Header'
 import { Login } from './Containers/Login'
 import { Home } from './Containers/Home'
-import DontFound from './Components/404'
-import PrivateRoute from './Components/PrivateRoute'
+import { DontFound } from './Components/404'
+import { PrivateRoute } from './Components/PrivateRoute'
 import { Profile } from './Containers/Profile'
 
 export function App() {

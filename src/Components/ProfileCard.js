@@ -6,8 +6,8 @@ import Profile from '../default_profile.png'
 
 const styles = StyleSheet.create({
   avatar: {
-    height: 64,
-    width: 64
+    height: 80,
+    width: 80
   }
 })
 

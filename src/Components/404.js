@@ -1,16 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { View, Text, Button, Image } from 'react-native'
+import ErrorCat from '../sad-error-cat.png'
 
-const DontFound = () => {
+export function DontFound () {
   return (
-    <div className="container is-fullhd dontFound has-background-white-bis">
-      <h1 class="title">Oops!</h1>
-      <h2 class="subtitle">There is nothing to show</h2>
-      <Link to="/home">
-        <button class="button is-primary">Go to Home</button>
-      </Link>
-    </div>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Image
+        style={{ height:150, width: 150}}
+        source={ErrorCat}
+        alt="sad cat"/>
+      <Text
+        style={{color: "#363636", fontSize: 32, fontWeight: 600, marginBottom: 20 }}>
+        Oops!
+      </Text>
+      <Text
+        style={{ color: "#4a4a4a", fontSize: 20, fontWeight: 400, marginBottom: 20 }}>
+        There is nothing to show
+      </Text>
+      <Button
+        color="#00d1b2"
+        title="Go to Home"
+        onPress={() => window.location.href= "/home"}
+      />
+    </View>
   )
 }
-
-export default DontFound

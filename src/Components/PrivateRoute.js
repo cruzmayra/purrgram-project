@@ -3,7 +3,7 @@ import {Route, Redirect} from 'react-router-dom'
 
 import ContextUser from '../Context/ContextUser'
 
-const PrivateRoute = ({children, ...rest}) => {
+export function PrivateRoute ({children, ...rest}) {
   return (
     <ContextUser.Consumer>
       {
@@ -29,5 +29,3 @@ const PrivateRoute = ({children, ...rest}) => {
     </ContextUser.Consumer>
   )
 }
-
-export default PrivateRoute
