@@ -1,5 +1,27 @@
 import React from 'react'
+import { StyleSheet, View, Text, TextInput, Button } from "react-native"
 import ContextUser from '../Context/ContextUser'
+
+const styles = StyleSheet.create({
+  containerForm: {
+    justifyContent: "space-around",
+    height: 150,
+    maxWidth: 600,
+    width: "90%"
+  },
+	title: {
+    color: "#363636",
+    fontSize: 32,
+    fontWeight: 600
+  },
+  input: {
+    backgroundColor: "#fff",
+    border: "1px solid #dbdbdb",
+    borderRadius: 4,
+    color: "#363636",
+    height: 40
+  }
+})
 
 const Login = ({handleChange}) => {
   return (
@@ -7,32 +29,17 @@ const Login = ({handleChange}) => {
       {
         value => {
           return (
-            <div className="container is-fullhd login-container has-background-white-bis">
-              <div className="column is-6">
-                <h1 class="title">Enter and enjoy beautiful images of cats.</h1>
-                <div className="field">
-                  <p className="control">
-                    <input className="input"
-                      type="email"
-                      placeholder="Ingresa tu usuario"
-                      onChange={ handleChange }/>
-                  </p>
-                </div>
-                <div className="field">
-                  <p className="control">
-                      <button className="button is-primary" onClick={ () => window.location.href= "/home"}>
-                        Login
-                      </button>
-                  </p>
-                </div>
-              </div>
-            </div>
+            <View style={{ flex: 4, alignItems: "center", justifyContent: "center" }} >
+              <View style={ styles.containerForm }  >
+                <Text style={ styles.title }>Enter and enjoy beautiful images of cats.</Text>
+                <TextInput style={ styles.input } onChange={ handleChange } />
+                <Button color="#00d1b2" title="Login" onPress={() => window.location.href= "/home"} />
+              </View>
+            </View>
           )
         }
       }
     </ContextUser.Consumer>
-    
-
   )
 }
 

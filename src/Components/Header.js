@@ -6,12 +6,12 @@ import Logo from '../logo_app_.png'
 
 const styles = StyleSheet.create({
 	navbar: {
+    alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
-    flex: 1,
-    minHeight: 60,
+    flex: 2,
+    maxHeight: 80,
     padding: 20,
-    position: 'relative',
     zIndex: 30
 	}
 })

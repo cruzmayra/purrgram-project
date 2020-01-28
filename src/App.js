@@ -10,8 +10,6 @@ import PrivateRoute from './Components/PrivateRoute'
 import Home from './Containers/Home'
 import Profile from './Containers/Profile'
 import Login from './Containers/Login'
-import './App.css'
-import 'bulma/css/bulma.css'
 
 export function App() {
   const {currentUser} = window.localStorage
@@ -22,7 +20,7 @@ export function App() {
 
   return (
     <ContextUser.Provider value={ currentUser }>
-      <View>
+      <View style={{ flex: 1, backgroundColor: "#fafafa"}}>
         <Header />
         <Switch>
           <Route exact path="/">
