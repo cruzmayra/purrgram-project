@@ -4,22 +4,22 @@ import ContextUser from '../Context/ContextUser'
 
 const styles = StyleSheet.create({
   containerForm: {
-    justifyContent: "space-around",
-    height: 150,
     maxWidth: 600,
     width: "90%"
   },
 	title: {
     color: "#363636",
     fontSize: 32,
-    fontWeight: 600
+    fontWeight: 600,
+    marginBottom: 24
   },
   input: {
     backgroundColor: "#fff",
     border: "1px solid #dbdbdb",
     borderRadius: 4,
     color: "#363636",
-    height: 40
+    height: 40,
+    marginBottom: 15
   }
 })
 
