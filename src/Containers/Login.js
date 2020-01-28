@@ -3,6 +3,11 @@ import { StyleSheet, View, Text, TextInput, Button } from "react-native"
 import ContextUser from '../Context/ContextUser'
 
 const styles = StyleSheet.create({
+  login: {
+    flex: 4,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   containerForm: {
     maxWidth: 600,
     width: "90%"
@@ -23,17 +28,25 @@ const styles = StyleSheet.create({
   }
 })
 
-const Login = ({handleChange}) => {
+export function Login ({handleChange}) {
   return (
     <ContextUser.Consumer>
       {
         value => {
           return (
-            <View style={{ flex: 4, alignItems: "center", justifyContent: "center" }} >
+            <View style={styles.login} >
               <View style={ styles.containerForm }  >
-                <Text style={ styles.title }>Enter and enjoy beautiful images of cats.</Text>
-                <TextInput style={ styles.input } onChange={ handleChange } />
-                <Button color="#00d1b2" title="Login" onPress={() => window.location.href= "/home"} />
+                <Text style={ styles.title }>
+                  Enter and enjoy beautiful images of cats.
+                </Text>
+                <TextInput
+                  style={ styles.input }
+                  onChange={ handleChange } />
+                <Button
+                  color="#00d1b2"
+                  title="Login"
+                  onPress={() => window.location.href= "/home"}
+                />
               </View>
             </View>
           )
@@ -42,5 +55,3 @@ const Login = ({handleChange}) => {
     </ContextUser.Consumer>
   )
 }
-
-export default Login

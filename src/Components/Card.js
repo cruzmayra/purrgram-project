@@ -1,25 +1,43 @@
 import React from 'react'
+import {StyleSheet, View, Image, Text, Button } from 'react-native'
 
-const Card = ({description, image, id, action, callTo}) => {
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: "#fff",
+    display: "flex",
+    flexDirection: "column",
+    margin: 15,
+    maxWidth: 230,
+    width: "90%"
+  },
+  cardHeader: {
+    height: 200,
+    width: "100%",
+    resizeMode: 'cover'
+  }
+})
+
+export default function Card ({description, image, id, action, callTo}) {
   return (
-    <div className="card item-card">
-      <div className="card-image">
-        <figure className="image is-1by1">
-          <img src={image} alt={description} />
-        </figure>
-      </div>
-      <div className="card-content">
-        <div className="content subtitle is-5">
+    <View 
+      style={styles.card}
+      className="card item-card">
+      <Image
+        source={image}
+        alt={description}
+        style={ styles.cardHeader }
+      />
+      <View style={{ padding: 24, flex: 1}}>
+        <Text style={{ flex: 4, margin: 10 }}>
           {description}
-        </div>
-        <button
-          className="button is-primary"
-          onClick={() => action(id)}>
-            {callTo}
-        </button>
-      </div>
-    </div>
+        </Text>
+        <Button
+          style={{ flex: 2}}
+          title={callTo}
+          color="#00d1b2"
+          onPress={() => action(id)}
+        />
+      </View>
+    </View>
   )
 }
-
-export default Card

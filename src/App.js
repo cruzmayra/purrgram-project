@@ -5,11 +5,11 @@ import ContextUser  from './Context/ContextUser'
 
 // Components
 import { Header } from './Components/Header'
+import { Login } from './Containers/Login'
+import { Home } from './Containers/Home'
 import DontFound from './Components/404'
 import PrivateRoute from './Components/PrivateRoute'
-import Home from './Containers/Home'
 import Profile from './Containers/Profile'
-import Login from './Containers/Login'
 
 export function App() {
   const {currentUser} = window.localStorage

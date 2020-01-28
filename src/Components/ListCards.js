@@ -1,11 +1,12 @@
 import React from 'react'
+import { Text } from 'react-native'
 
 // Components
 import Card from './Card'
 
-const ListCards = ({items, action, callTo}) => {
+export function ListCards ({items, action, callTo}) {
 
-  if(!items) return (<h3 class="title is-3">Oops! Something went wrong.</h3>)
+  if(!items) return (<Text>Oops! Something went wrong.</Text>)
 
   if(items)
   return (
@@ -23,5 +24,3 @@ const ListCards = ({items, action, callTo}) => {
     })
   )
 }
-
-export default ListCards

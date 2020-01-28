@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import { StyleSheet, View } from 'react-native'
 
 // Components
-import ListCards from '../Components/ListCards'
+import { ListCards } from '../Components/ListCards'
 import ProfileCard from '../Components/ProfileCard'
 
 const accessKey = process.env.REACT_APP_ACCESS_KEY
 
-const Home = () => {
+const styles = StyleSheet.create({
+  catsContainer: { 
+    flex: 4,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    padding: 20}
+})
+
+export function Home() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -18,7 +28,7 @@ const Home = () => {
         .catch( e => console.error( 'Something went wrong' ) );
       }, [])
   
-  const addFavorites = (ident) => {
+  function addFavorites(ident) {
     const { currentUser } = window.localStorage
     const favUser = JSON.parse(window.localStorage.getItem(currentUser))
     const currentFav = items.filter(item => {
@@ -44,15 +54,17 @@ const Home = () => {
   }
 
   return (
-    <div className="columns has-background-white-bis is-flex home-container">
-      <div className="column is-9 items-container is-flex">
-        <ListCards items={items} action={ addFavorites } callTo="Add to Favorites"/>
-      </div>
-      <div className="column">
-        <ProfileCard />
-      </div>
-    </div>
+    <View style={{ flex: 1, flexDirection: "row"}} >
+      <View style={styles.catsContainer}>
+        <ListCards
+          items={items}
+          action={ addFavorites }
+          callTo="Add to Favorites"
+        />
+      </View>
+      <View style={{ flex: 2 }}>
+        {/* <ProfileCard /> */}
+      </View>
+    </View>
   )
 }
-
-export default Home
