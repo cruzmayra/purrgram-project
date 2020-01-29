@@ -40,7 +40,7 @@ export default function ProfileCard () {
               </Link>
               <br />
               <Text
-                style={{ fontWeight: 16, color: "#4a4a4a", fontWeight: 400 }}>
+                style={{ fontSize: 16, color: "#4a4a4a", fontWeight: 400 }}>
                 See photos of cats that you have saved as favorites.
               </Text>
               <br />
